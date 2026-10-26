@@ -18,7 +18,7 @@ data = pd.DataFrame({
 pal = ["#BFBFFF", "#FF777C","#CD1C18"]
 g = sns.FacetGrid(data, row="group", hue="group", aspect=5, height=1, palette=pal)
 
-# Плотности
+# Densities
 g.map(sns.kdeplot, "Length",
       bw_adjust=.5, clip_on=False,
       fill=True, alpha=1, linewidth=1.5)
@@ -28,7 +28,7 @@ g.map(sns.kdeplot, "Length", clip_on=False, color="w", lw=2, bw_adjust=.5)
 g.refline(y=0, linewidth=2, linestyle="-", color=None, clip_on=False)
 
 
-# Функция для обозначения дорожек
+# to label rows
 def label(x, color, label):
     ax = plt.gca()
     ax.text(0, .2, label, fontweight="bold", color=color,
